@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+/* Force pointer everywhere inside .cursor-all */
+.cursor-all, .cursor-all * {
+  cursor: pointer !important;
+}
