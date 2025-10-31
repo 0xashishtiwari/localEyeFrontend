@@ -20,13 +20,13 @@ const App = () => {
         <Route path='/crowd-heatmap' element={<CrowdHeatmap/>} />
         <Route path='/navigation' element={<Navigation/>} />
         <Route path='/admin' element={<Admin/>} />
+        </Route>
         <Route path='/submitreport' element={<Form/>}/>
         <Route path='/profile' element={<Profile/>}/>
         {/* <Route element={<LoggedIn/>}> */}
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<SignUp/>} />
         {/* </Route> */}
-        </Route>
         
       </Routes>
     </div>
