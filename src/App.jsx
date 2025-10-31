@@ -23,10 +23,10 @@ const App = () => {
         <Route path='/submitreport' element={<Form/>}/>
         <Route path='/profile' element={<Profile/>}/>
         {/* <Route element={<LoggedIn/>}> */}
-        </Route>
         <Route path='/login' element={<Login/>} />
         <Route path='/signup' element={<SignUp/>} />
         {/* </Route> */}
+        </Route>
         
       </Routes>
     </div>
