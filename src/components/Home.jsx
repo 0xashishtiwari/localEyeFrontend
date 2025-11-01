@@ -125,7 +125,7 @@ function logoutclick(){
     removeitem(KEY_ACCESS_TOKEN);
     removeitem('user_email');
                 //reload to login page
-                window.location.replace('/login')
+                window.location.replace('/')
                 return Promise.reject(error);
   }
 
