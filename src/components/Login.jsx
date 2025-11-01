@@ -6,14 +6,20 @@ import { KEY_ACCESS_TOKEN, setitem } from "../utils/LocalStorageManager";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
+      setLoading(true);
       const result = await AxiosClient.post("/auth/login", { email, password });
       setitem(KEY_ACCESS_TOKEN, result.accesstoken);
       setitem("user_email", email);
+      if(result){
+      
+      setLoading(false);
+      }
       navigate("/");
     } catch (error) {
       console.log(error);
@@ -73,7 +79,7 @@ const Login = () => {
               type="submit"
               className="w-full bg-green-500 text-white font-semibold py-2 rounded-lg hover:bg-green-600 transition duration-200"
             >
-              Login
+              {loading ?  <h1>please wait...</h1> : <h1>Login</h1>}
             </button>
             <p className="text-sm text-gray-600">
               New user?{" "}
