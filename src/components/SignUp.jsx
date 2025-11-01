@@ -6,17 +6,20 @@ const SignUp = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const[loading , setLoading] = useState(false);
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
     try {
+      setLoading(true);
       const result = await AxiosClient.post("/auth/signup", {
         name,
         email,
         password,
       });
       if (result) {
+        setLoading(false);
         navigate("/login");
       }
     } catch (e) {
@@ -95,7 +98,7 @@ const SignUp = () => {
               type="submit"
               className="w-full bg-green-500 text-white font-semibold py-2 rounded-lg hover:bg-green-600 transition duration-200"
             >
-              Sign Up
+              {loading ? <h1>please wait...</h1> : <h1>Sign up</h1>}
             </button>
             <p className="text-sm text-gray-600">
               Already a user?{" "}
